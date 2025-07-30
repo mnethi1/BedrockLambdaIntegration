@@ -4,7 +4,9 @@
         {
             "Effect": "Allow",
             "Action": [
-                "bedrock:InvokeModel"
+                "bedrock:InvokeModel",
+                "bedrock:InvokeModelWithResponseStream",
+                "bedrock:ListFoundationModels"
             ],
             "Resource": "arn:aws:bedrock:*::foundation-model/anthropic.claude-3-haiku-20240307-v1:0"
         },
@@ -14,6 +16,13 @@
                 "logs:CreateLogGroup",
                 "logs:CreateLogStream",
                 "logs:PutLogEvents"
+            ],
+            "Resource": "arn:aws:logs:*:*:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "lambda:*"
             ],
             "Resource": "arn:aws:logs:*:*:*"
         }
